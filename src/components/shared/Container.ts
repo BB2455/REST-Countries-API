@@ -14,11 +14,13 @@ const Container = styled.div<props>`
   justify-content: ${(props) => props.justifyContent};
   align-items: ${(props) => props.alignItems};
   background: ${(props) =>
-    props.background === "element" ? props.theme.colors.elements : "none"};
+    props.background === "element"
+      ? props.theme.colors.elements
+      : props.background};
 `;
 
 Container.defaultProps = {
-  padding: "0 3rem",
+  padding: "0 5rem",
   display: "block",
   justifyContent: "",
   alignItems: "",

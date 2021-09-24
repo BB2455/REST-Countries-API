@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const Toggle = styled.button`
   border: none;
-  background: inherit;
   cursor: pointer;
+  background: none;
+  font-size: 1rem;
+  font-weight: 600;
 `;

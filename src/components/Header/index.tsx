@@ -11,7 +11,6 @@ interface Props {
 const Header = (props: Props) => {
   return (
     <Container
-      padding="2rem 4rem"
       background={"element"}
       display="flex"
       justifyContent="space-between"
