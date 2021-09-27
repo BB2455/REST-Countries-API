@@ -5,7 +5,7 @@ import LightDarkToggle from "../LightDarkToggle";
 
 interface Props {
   theme: string;
-  toggleTheme: any;
+  toggleTheme: () => void;
 }
 
 const Header = (props: Props) => {

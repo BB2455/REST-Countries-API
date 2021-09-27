@@ -4,7 +4,7 @@ export const InputBar = styled.form`
   min-width: 30%;
   background: ${(props) => props.theme.colors.elements};
   color: ${(props) => props.theme.colors.input};
-  border-radius: 4px;
+  border-radius: 5px;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
   cursor: text;
   display: flex;
@@ -15,13 +15,10 @@ export const Input = styled.input`
   color: ${(props) => props.theme.colors.input};
   border: none;
 
-  padding: 1.5rem 0 1.5rem 3rem;
+  padding: 1rem 0 1rem 3rem;
   font-size: 14px;
   font-weight: 600;
   background: none;
-  &:focus {
-    outline: 0;
-  }
   &::placeholder {
     color: ${(props) => props.theme.colors.input};
   }

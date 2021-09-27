@@ -7,6 +7,8 @@ interface props {
   alignItems?: string;
   background?: string;
   boxShadow?: string;
+  width?: string;
+  position?: string;
 }
 
 const Div = styled.div<props>`
@@ -19,6 +21,8 @@ const Div = styled.div<props>`
       ? props.theme.colors.elements
       : props.background};
   box-shadow: ${(props) => props.boxShadow};
+  width: ${(props) => props.width};
+  position: ${(props) => props.position};
 `;
 
 Div.defaultProps = {
@@ -28,6 +32,8 @@ Div.defaultProps = {
   alignItems: "",
   background: "none",
   boxShadow: "none",
+  width: "none",
+  position: "static",
 };
 
 export default Div;

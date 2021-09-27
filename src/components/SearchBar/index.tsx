@@ -8,7 +8,11 @@ interface Props {}
 const SearchBar = (props: Props) => {
   return (
     <InputBar role="search" id="searchBar">
-      <Input type="text" placeholder="Search for a country..." />
+      <Input
+        type="text"
+        placeholder="Search for a country..."
+        title="Search for a country"
+      />
       <Icon>
         <FontAwesomeIcon icon={faSearch} />
       </Icon>

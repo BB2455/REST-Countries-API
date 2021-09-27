@@ -6,12 +6,13 @@ import { Toggle } from "./styled";
 
 interface Props {
   theme: string;
-  toggleTheme: any;
+  toggleTheme: () => void;
 }
 
 const LightDarkToggle = (props: Props) => {
   return (
     <Toggle
+      title="Toggle Light/Dark Mode"
       onClick={() => {
         props.toggleTheme();
       }}

@@ -2,6 +2,7 @@ import React from "react";
 import { Div, Container } from "../components/shared";
 import { Helmet } from "react-helmet";
 import SearchBar from "../components/SearchBar";
+import Filter from "../components/Filter";
 
 interface Props {}
 
@@ -18,7 +19,7 @@ const Home = (props: Props) => {
         alignItems="center"
       >
         <SearchBar />
-        <p>Filter</p>
+        <Filter />
       </Div>
     </Container>
   );
