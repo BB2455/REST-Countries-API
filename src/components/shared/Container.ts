@@ -1,30 +1,24 @@
 import styled from "styled-components";
+import { device } from "../../Devices";
 
-interface props {
-  padding?: string;
-  display?: string;
-  justifyContent?: string;
-  alignItems?: string;
-  background?: string;
-}
-
-const Container = styled.div<props>`
-  padding: ${(props) => props.padding};
-  display: ${(props) => props.display};
-  justify-content: ${(props) => props.justifyContent};
-  align-items: ${(props) => props.alignItems};
-  background: ${(props) =>
-    props.background === "element"
-      ? props.theme.colors.elements
-      : props.background};
+const Container = styled.div`
+  margin: 0 auto;
+  width: 1320px;
+  @media ${device.xl} {
+    width: 1140px;
+  }
+  @media ${device.lg} {
+    width: 960px;
+  }
+  @media ${device.md} {
+    width: 720px;
+  }
+  @media ${device.sm} {
+    width: 540px;
+  }
+  @media ${device.xs} {
+    width: 95%;
+  }
 `;
-
-Container.defaultProps = {
-  padding: "0 5rem",
-  display: "block",
-  justifyContent: "",
-  alignItems: "",
-  background: "none",
-};
 
 export default Container;

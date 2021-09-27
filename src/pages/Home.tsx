@@ -1,6 +1,7 @@
 import React from "react";
-import { Container } from "../components/shared";
+import { Div, Container } from "../components/shared";
 import { Helmet } from "react-helmet";
+import SearchBar from "../components/SearchBar";
 
 interface Props {}
 
@@ -10,15 +11,15 @@ const Home = (props: Props) => {
       <Helmet>
         <title>Where In The World</title>
       </Helmet>
-      <Container
-        padding="0"
+      <Div
+        padding="3rem 0"
         display="flex"
         justifyContent="space-between"
         alignItems="center"
       >
-        <h1>Search</h1>
-        <h2>Filter</h2>
-      </Container>
+        <SearchBar />
+        <p>Filter</p>
+      </Div>
     </Container>
   );
 };

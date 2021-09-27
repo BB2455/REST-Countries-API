@@ -6,4 +6,5 @@ export const Toggle = styled.button`
   background: none;
   font-size: 1rem;
   font-weight: 600;
+  color: ${(props) => props.theme.colors.text};
 `;

@@ -8,12 +8,12 @@ const GlobalStyles = createGlobalStyle<props>`
     padding: 0;
     font-family: 'Nunito Sans', sans-serif;
     box-sizing: border-box;
-    color: ${(props) => props.theme.colors.text};
-    transition: all 0.2s;
+    transition: background 0.2s;
   }
   body {
-    
+    color: ${(props) => props.theme.colors.text};
     background: ${(props) => props.theme.colors.background};
+    
   }
 `;
 
