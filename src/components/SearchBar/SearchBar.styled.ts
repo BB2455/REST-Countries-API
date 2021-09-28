@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const InputBar = styled.form`
-  min-width: 30%;
+  width: 400px;
   background: ${(props) => props.theme.colors.elements};
   color: ${(props) => props.theme.colors.input};
   border-radius: 5px;

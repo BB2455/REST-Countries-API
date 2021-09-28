@@ -3,6 +3,7 @@ import { Div, Container } from "../components/shared";
 import { Helmet } from "react-helmet";
 import SearchBar from "../components/SearchBar";
 import Filter from "../components/Filter";
+import CountryGrid from "../components/CountryGrid";
 
 interface Props {}
 
@@ -21,6 +22,7 @@ const Home = (props: Props) => {
         <SearchBar />
         <Filter />
       </Div>
+      <CountryGrid />
     </Container>
   );
 };

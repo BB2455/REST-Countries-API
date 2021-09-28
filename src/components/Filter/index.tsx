@@ -22,7 +22,7 @@ const Filter = (props: Props) => {
   };
 
   return (
-    <Div width="15%" position="relative">
+    <Div width="200px" position="relative">
       <DropDownButton
         title="Filter by Region"
         name="region"
@@ -83,7 +83,7 @@ const Filter = (props: Props) => {
         </DropDownItem>
       </DropDownBox>
       <DropDownBack
-        visibility={menuOpen ? "visible" : "hidden"}
+        display={menuOpen ? "block" : "none"}
         onClick={() => setMenuOpen(false)}
         tabIndex={-1}
       />

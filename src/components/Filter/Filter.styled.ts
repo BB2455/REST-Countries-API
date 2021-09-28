@@ -7,16 +7,19 @@ interface VisibilityProps {
 export const DropDownIcon = styled.span`
   position: absolute;
   right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
 `;
 
 export const DropDownButton = styled.button`
   width: 100%;
+  min-width: 120px;
   color: ${(props) => props.theme.colors.text};
   background: ${(props) => props.theme.colors.elements};
   border: none;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  padding: 1rem 1rem 1rem 1.5rem;
+  padding: 1rem 2rem 1rem 1.5rem;
   font-size: 14px;
   font-weight: 600;
   text-align: start;
@@ -26,9 +29,8 @@ export const DropDownButton = styled.button`
 
 export const DropDownBox = styled.div<VisibilityProps>`
   width: 100%;
- 
+  min-width: 120px;
   background: ${(props) => props.theme.colors.elements};
-  
   border-radius: 5px;
   z-index: 5;
   padding 0.5rem 0;
@@ -59,7 +61,11 @@ export const DropDownItem = styled.button`
   z-index: 5;
 `;
 
-export const DropDownBack = styled.button<VisibilityProps>`
+interface DisplayProps {
+  display: string;
+}
+
+export const DropDownBack = styled.button<DisplayProps>`
   background: none;
   border: none;
   position: fixed;
@@ -68,9 +74,9 @@ export const DropDownBack = styled.button<VisibilityProps>`
   z-index: 3;
   top: 0;
   right: 0;
-  visibility: ${(props) => props.visibility};
+  display: ${(props) => props.display};
 `;
 
 DropDownBack.defaultProps = {
-  visibility: "hidden",
+  display: "none",
 };
