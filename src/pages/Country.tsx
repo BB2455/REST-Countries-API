@@ -1,18 +1,23 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { Container, Div, Button } from "../components/shared";
+import { CountryInfo } from "../components";
 
 interface Props {}
 
 const Country = (props: Props) => {
   let { country }: any = useParams();
   return (
-    <div>
+    <Container>
       <Helmet>
         <title>Where In The World | {country}</title>
       </Helmet>
-      {country}
-    </div>
+      <Div padding="5rem 0">
+        <Button href="/" />
+      </Div>
+      <CountryInfo />
+    </Container>
   );
 };
 
