@@ -4,7 +4,10 @@ import { Helmet } from "react-helmet";
 import { Container, Div, Button } from "../components/shared";
 import { CountryInfo } from "../components";
 
-interface Props {}
+interface Props {
+  Data: [];
+  Loaded: boolean;
+}
 
 const Country = (props: Props) => {
   let { country }: any = useParams();

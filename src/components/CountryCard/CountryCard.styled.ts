@@ -13,6 +13,7 @@ export const CardContainer = styled.div`
 export const CardImage = styled.img`
   width: 100%;
   height: 162px;
+  border-radius: 5px 5px 0 0;
 `;
 
 export const CardDetails = styled.div`

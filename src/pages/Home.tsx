@@ -5,7 +5,10 @@ import SearchBar from "../components/SearchBar";
 import Filter from "../components/Filter";
 import CountryGrid from "../components/CountryGrid";
 
-interface Props {}
+interface Props {
+  Data: [];
+  Loaded: boolean;
+}
 
 const Home = (props: Props) => {
   return (
@@ -22,7 +25,7 @@ const Home = (props: Props) => {
         <SearchBar />
         <Filter />
       </Div>
-      <CountryGrid />
+      <CountryGrid Data={props.Data} Loaded={props.Loaded} />
     </Container>
   );
 };

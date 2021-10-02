@@ -8,22 +8,28 @@ import {
   CardDetail,
 } from "./CountryCard.styled";
 
-interface Props {}
+interface Props {
+  Name: string;
+  Region: string;
+  Capital: string;
+  flag: string;
+  Population: string;
+}
 
 const CountryCard = (props: Props) => {
   return (
     <CardContainer>
-      <CardImage src={""} alt={""}></CardImage>
+      <CardImage src={props.flag} alt={props.Name + " Flag"}></CardImage>
       <CardDetails>
-        <CardName>Germany</CardName>
+        <CardName>{props.Name}</CardName>
         <CardDescription>
-          <CardDetail>Population:</CardDetail> 81,770,900
+          <CardDetail>Region:</CardDetail> {props.Region}
         </CardDescription>
         <CardDescription>
-          <CardDetail>Region:</CardDetail> Europe
+          <CardDetail>Population:</CardDetail> {props.Population}
         </CardDescription>
         <CardDescription>
-          <CardDetail>Capital:</CardDetail> Berlin
+          <CardDetail>Capital:</CardDetail> {props.Capital}
         </CardDescription>
       </CardDetails>
     </CardContainer>
