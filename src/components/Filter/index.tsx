@@ -10,14 +10,16 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Div } from "../shared";
 
-interface Props {}
+interface Props {
+  filterChanged: (region: string) => void;
+  currentRegion: string;
+}
 
 const Filter = (props: Props) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [region, setRegion] = useState("");
 
   const pickRegion = (newRegion: string): void => {
-    setRegion(newRegion);
+    props.filterChanged(newRegion);
     setMenuOpen(false);
   };
 
@@ -30,14 +32,14 @@ const Filter = (props: Props) => {
           menuOpen ? setMenuOpen(false) : setMenuOpen(true);
         }}
       >
-        {region === "" ? "Filter by Region" : region}
+        {props.currentRegion === "" ? "Filter by Region" : props.currentRegion}
 
         <DropDownIcon>
           <FontAwesomeIcon icon={faChevronDown} />
         </DropDownIcon>
       </DropDownButton>
       <DropDownBox visibility={menuOpen ? "visible" : "hidden"}>
-        {region === "" ? null : (
+        {props.currentRegion === "" ? null : (
           <DropDownItem
             onClick={() => {
               pickRegion("");
@@ -55,10 +57,10 @@ const Filter = (props: Props) => {
         </DropDownItem>
         <DropDownItem
           onClick={() => {
-            pickRegion("America");
+            pickRegion("Americas");
           }}
         >
-          America
+          Americas
         </DropDownItem>
         <DropDownItem
           onClick={() => {

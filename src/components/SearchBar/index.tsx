@@ -1,9 +1,12 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { ChangeEvent } from "react";
 import { InputBar, Input, Icon } from "./SearchBar.styled";
 
-interface Props {}
+interface Props {
+  currentSearch: string;
+  searchChanged: (e: ChangeEvent<HTMLInputElement>) => void;
+}
 
 const SearchBar = (props: Props) => {
   return (
@@ -12,6 +15,10 @@ const SearchBar = (props: Props) => {
         type="text"
         placeholder="Search for a country..."
         title="Search for a country"
+        value={props.currentSearch === "" ? "" : props.currentSearch}
+        onChange={(e) => {
+          props.searchChanged(e);
+        }}
       />
       <Icon>
         <FontAwesomeIcon icon={faSearch} />

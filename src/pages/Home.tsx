@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, ChangeEvent } from "react";
 import { Div, Container } from "../components/shared";
 import { Helmet } from "react-helmet";
 import SearchBar from "../components/SearchBar";
@@ -11,6 +11,34 @@ interface Props {
 }
 
 const Home = (props: Props) => {
+  const [search, setSearch] = useState<string>("");
+  const [regionFilter, setRegionFilter] = useState<string>("");
+  const [currentCountries, setCurrentCountries] = useState<object[]>(
+    props.Data
+  );
+
+  const searchBarChanged = (e: ChangeEvent<HTMLInputElement>): void => {
+    setSearch(e.target.value);
+  };
+
+  const filterRegionChanged = (region: string): void => {
+    setRegionFilter(region);
+  };
+
+  useEffect(() => {
+    if (search === "" && regionFilter === "") {
+      setCurrentCountries(props.Data);
+      return;
+    }
+    let toBeFilteredData: any[] = props.Data;
+    if (regionFilter !== "") {
+      toBeFilteredData = toBeFilteredData.filter(
+        (country) => country.region === regionFilter
+      );
+      setCurrentCountries(toBeFilteredData);
+    }
+  }, [search, regionFilter]);
+
   return (
     <Container>
       <Helmet>
@@ -22,10 +50,13 @@ const Home = (props: Props) => {
         justifyContent="space-between"
         alignItems="center"
       >
-        <SearchBar />
-        <Filter />
+        <SearchBar currentSearch={search} searchChanged={searchBarChanged} />
+        <Filter
+          filterChanged={filterRegionChanged}
+          currentRegion={regionFilter}
+        />
       </Div>
-      <CountryGrid Data={props.Data} Loaded={props.Loaded} />
+      <CountryGrid Data={currentCountries} Loaded={props.Loaded} />
     </Container>
   );
 };
