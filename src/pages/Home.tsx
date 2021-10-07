@@ -13,9 +13,7 @@ interface Props {
 const Home = (props: Props) => {
   const [search, setSearch] = useState<string>("");
   const [regionFilter, setRegionFilter] = useState<string>("");
-  const [currentCountries, setCurrentCountries] = useState<object[]>(
-    props.Data
-  );
+  const [currentCountries, setCurrentCountries] = useState<object[]>([]);
 
   const searchBarChanged = (e: ChangeEvent<HTMLInputElement>): void => {
     setSearch(e.target.value);
@@ -35,9 +33,14 @@ const Home = (props: Props) => {
       toBeFilteredData = toBeFilteredData.filter(
         (country) => country.region === regionFilter
       );
-      setCurrentCountries(toBeFilteredData);
     }
-  }, [search, regionFilter]);
+    if (search !== "") {
+      toBeFilteredData = toBeFilteredData.filter((country) =>
+        country.name.official.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+    setCurrentCountries(toBeFilteredData);
+  }, [search, regionFilter, props.Data]);
 
   return (
     <Container>
