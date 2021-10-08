@@ -28,7 +28,6 @@ const App: React.FC = () => {
 
   useEffect(() => {
     fetchData();
-    // eslint-disable-next-line
   }, []);
 
   const toggleTheme = (): void => {
@@ -41,7 +40,7 @@ const App: React.FC = () => {
         <GlobalStyles />
         <Header theme={theme} toggleTheme={toggleTheme} />
         <Switch>
-          <Route path="/country/:country">
+          <Route path="/:country">
             <Country Data={countryData} Loaded={hasLoaded} />
           </Route>
           <Route path="/" exact>

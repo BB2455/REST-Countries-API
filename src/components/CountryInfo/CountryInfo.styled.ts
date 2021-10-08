@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const FlagImage = styled.img`
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.5);
   height: 100%;
+  width: 40%;
 `;
 
 export const CountryTitle = styled.h1`
