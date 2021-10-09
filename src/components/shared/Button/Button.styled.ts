@@ -3,6 +3,7 @@ import styled from "styled-components";
 interface ButtonProps {
   padding?: string;
   margin?: string;
+  width?: string;
 }
 
 export const Button = styled.div<ButtonProps>`
@@ -17,9 +18,11 @@ export const Button = styled.div<ButtonProps>`
   color: ${(props) => props.theme.colors.text};
   text-align: center;
   margin: ${(props) => props.margin};
+  width: ${(props) => props.width};
 `;
 
 Button.defaultProps = {
   padding: "0.5rem 2rem",
   margin: "0",
+  width: "none",
 };

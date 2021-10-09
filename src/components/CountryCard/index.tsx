@@ -19,7 +19,11 @@ interface Props {
 
 const CountryCard = (props: Props) => {
   return (
-    <Link to={props.Name} style={{ textDecoration: "none", color: "inherit" }}>
+    <Link
+      to={props.Name}
+      style={{ textDecoration: "none", color: "inherit" }}
+      title={props.Name}
+    >
       <CardContainer>
         <CardImage src={props.flag} alt={props.Name + " Flag"}></CardImage>
         <CardDetails>

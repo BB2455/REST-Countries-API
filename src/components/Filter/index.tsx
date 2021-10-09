@@ -5,10 +5,10 @@ import {
   DropDownBox,
   DropDownItem,
   DropDownBack,
+  FilterContainer,
 } from "./Filter.styled";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Div } from "../shared";
 
 interface Props {
   filterChanged: (region: string) => void;
@@ -24,7 +24,7 @@ const Filter = (props: Props) => {
   };
 
   return (
-    <Div width="200px" position="relative">
+    <FilterContainer>
       <DropDownButton
         title="Filter by Region"
         name="region"
@@ -89,7 +89,7 @@ const Filter = (props: Props) => {
         onClick={() => setMenuOpen(false)}
         tabIndex={-1}
       />
-    </Div>
+    </FilterContainer>
   );
 };
 

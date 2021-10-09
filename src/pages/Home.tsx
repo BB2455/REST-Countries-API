@@ -1,9 +1,8 @@
 import React, { useState, useEffect, ChangeEvent } from "react";
-import { Div, Container } from "../components/shared";
+import { Container } from "../components/shared";
 import { Helmet } from "react-helmet";
-import SearchBar from "../components/SearchBar";
-import Filter from "../components/Filter";
 import CountryGrid from "../components/CountryGrid";
+import { Search } from "../components";
 
 interface Props {
   Data: [];
@@ -49,18 +48,12 @@ const Home = (props: Props) => {
       <Helmet>
         <title>Where In The World</title>
       </Helmet>
-      <Div
-        padding="3rem 0 0 0"
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center"
-      >
-        <SearchBar currentSearch={search} searchChanged={searchBarChanged} />
-        <Filter
-          filterChanged={filterRegionChanged}
-          currentRegion={regionFilter}
-        />
-      </Div>
+      <Search
+        currentSearch={search}
+        searchChanged={searchBarChanged}
+        filterChanged={filterRegionChanged}
+        currentRegion={regionFilter}
+      />
       <CountryGrid Data={currentCountries} Loaded={props.Loaded} />
     </Container>
   );

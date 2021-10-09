@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../Devices";
 
 export const InputBar = styled.form`
   width: 400px;
@@ -9,14 +10,19 @@ export const InputBar = styled.form`
   cursor: text;
   display: flex;
   position: relative;
+  font-size: 14px;
+  @media ${device.sm} {
+    width: 100%;
+    font-size: 1.25rem;
+    border-radius: 10px;
+  }
 `;
 
 export const Input = styled.input`
   color: ${(props) => props.theme.colors.input};
   border: none;
-
   padding: 1rem 0 1rem 3rem;
-  font-size: 14px;
+  font-size: inherit;
   font-weight: 600;
   background: none;
   &::placeholder {
@@ -25,6 +31,9 @@ export const Input = styled.input`
   width: 100%;
   height: 100%;
   z-index: 2;
+  @media ${device.sm} {
+    padding: 2rem 0 2rem 8rem;
+  }
 `;
 
 export const Icon = styled.div`
@@ -33,4 +42,7 @@ export const Icon = styled.div`
   z-index: 1;
   top: 50%;
   transform: translateY(-50%);
+  @media ${device.sm} {
+    left: 4rem;
+  }
 `;

@@ -7,7 +7,9 @@ import {
   CountryTitle,
   BorderTitle,
   CountryContainer,
+  InfoContainer,
   BorderContainer,
+  BorderItemContainer,
 } from "./CountryInfo.styled";
 
 interface Props {
@@ -48,21 +50,38 @@ const CountryInfo = (props: Props) => {
     return languages.join(", ");
   };
 
-  const getBorderCountryLink = (borderCode: string): string => {
+  const getBorderCountryButton = (borderCode: string) => {
     const grabbedCountry = props.Data.find(
       (country: any) => country.cca3 === borderCode
     );
-    return grabbedCountry !== null || grabbedCountry !== undefined
-      ? encodeURI(grabbedCountry.name.common)
-      : "";
+
+    const countryLink =
+      grabbedCountry !== null || grabbedCountry !== undefined
+        ? encodeURI(grabbedCountry.name.common)
+        : "";
+    const countryName =
+      grabbedCountry !== null || grabbedCountry !== undefined
+        ? grabbedCountry.name.common
+        : "";
+
+    return (
+      <Button
+        title={borderCode}
+        name={countryName}
+        key={borderCode}
+        padding="0.5rem 1.5rem"
+        href={countryLink}
+        width="100%"
+      />
+    );
   };
 
   return (
     <CountryContainer>
       <FlagImage src={props.CountryData.flags[0]} />
-      <Div>
-        <CountryTitle>{props.CountryData.name.official}</CountryTitle>
-        <Div display="flex" justifyContent="space-between" width="100%">
+      <Div width="100%" padding="0 0 3rem 0">
+        <CountryTitle>{props.CountryData.name.common}</CountryTitle>
+        <InfoContainer>
           <Div width="50%">
             <DataItem>
               <DataTitle>Native Name: </DataTitle>
@@ -84,7 +103,7 @@ const CountryInfo = (props: Props) => {
               {props.CountryData.capital[0]}
             </DataItem>
           </Div>
-          <Div width="250px">
+          <Div width="50%">
             <DataItem>
               <DataTitle>Top Level Domain: </DataTitle>
               {props.CountryData.tld}
@@ -98,24 +117,15 @@ const CountryInfo = (props: Props) => {
               {getLanguages()}
             </DataItem>
           </Div>
-        </Div>
-        <Div
-          display="flex"
-          padding="4rem 0 0 0"
-          alignItems="center"
-          style={{ flexWrap: "wrap" }}
-        >
+        </InfoContainer>
+        <BorderContainer>
           <BorderTitle>Border Countries: </BorderTitle>
-
-          {props.CountryData.borders.map((borderCountry: any) => (
-            <Button
-              key={borderCountry}
-              margin="0.5rem"
-              href={getBorderCountryLink(borderCountry)}
-              title={borderCountry}
-            />
-          ))}
-        </Div>
+          <BorderItemContainer>
+            {props.CountryData.borders.map((borderCountry: any) =>
+              getBorderCountryButton(borderCountry)
+            )}
+          </BorderItemContainer>
+        </BorderContainer>
       </Div>
     </CountryContainer>
   );

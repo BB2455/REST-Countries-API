@@ -9,12 +9,14 @@ interface Props {
   title?: string | Component;
   margin?: string;
   padding?: string;
+  name?: string;
+  width?: string;
 }
 
 const BackButton = (props: Props) => {
   return (
-    <Link to={props.href}>
-      <Button margin={props.margin} padding={props.padding}>
+    <Link to={props.href} title={props.name}>
+      <Button margin={props.margin} padding={props.padding} width={props.width}>
         {props.href === "/" ? (
           <>
             <FontAwesomeIcon icon={faLongArrowAltLeft} /> Back

@@ -14,10 +14,7 @@ const Container = styled.div`
     width: 720px;
   }
   @media ${device.sm} {
-    width: 540px;
-  }
-  @media ${device.xs} {
-    width: 95%;
+    width: 90%;
   }
 `;
 
