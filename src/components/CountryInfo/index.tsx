@@ -26,7 +26,7 @@ const CountryInfo = (props: Props) => {
     let currencies: string[] = [];
     try {
       Object.values(props.CountryData.currencies).map((currency: any) => {
-        currencies.push(currency.name);
+        return currencies.push(currency.name);
       });
     } catch {
       return "N/A";
@@ -38,7 +38,7 @@ const CountryInfo = (props: Props) => {
     let languages: string[] = [];
     try {
       Object.values(props.CountryData.languages).map((language: any) => {
-        languages.push(language);
+        return languages.push(language);
       });
     } catch {
       return "N/A";
@@ -47,7 +47,12 @@ const CountryInfo = (props: Props) => {
   };
 
   const getBorderCountryLink = (borderCode: string): string => {
-    return "";
+    const grabbedCountry = props.Data.find(
+      (country: any) => country.cca3 === borderCode
+    );
+    return grabbedCountry !== null || grabbedCountry !== undefined
+      ? encodeURI(grabbedCountry.name.common)
+      : "";
   };
 
   return (
@@ -80,7 +85,7 @@ const CountryInfo = (props: Props) => {
           <Div width="250px">
             <DataItem>
               <DataTitle>Top Level Domain: </DataTitle>
-              {props.CountryData.name.official}
+              {props.CountryData.tld}
             </DataItem>
             <DataItem>
               <DataTitle>Currencies: </DataTitle>
@@ -92,11 +97,17 @@ const CountryInfo = (props: Props) => {
             </DataItem>
           </Div>
         </Div>
-        <Div display="flex" padding="4rem 0 0 0" alignItems="center">
+        <Div
+          display="flex"
+          padding="4rem 0 0 0"
+          alignItems="center"
+          style={{ flexWrap: "wrap" }}
+        >
           <BorderTitle>Border Countries: </BorderTitle>
           {props.CountryData.borders.map((borderCountry: any) => (
             <Button
-              margin="0 0 0 1rem"
+              key={borderCountry}
+              margin="0.5rem"
               href={getBorderCountryLink(borderCountry)}
               title={borderCountry}
             />

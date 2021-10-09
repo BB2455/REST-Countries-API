@@ -4,7 +4,12 @@ import Country from "./pages/Country";
 import GlobalStyles from "./global.styled";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./themes";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import { Header } from "./components";
 
 const App: React.FC = () => {
@@ -16,7 +21,7 @@ const App: React.FC = () => {
   const fetchData = async (): Promise<void> => {
     try {
       const response = await fetch(
-        `https://restcountries.com/v3/all?fields=name,region,capital,flags,subregion,tld,currencies,languages,borders,cioc,population`
+        `https://restcountries.com/v3/all?fields=name,region,capital,flags,subregion,tld,currencies,languages,borders,cioc,population,cca3`
       );
       const data = await response.json();
       setCountryData(data);

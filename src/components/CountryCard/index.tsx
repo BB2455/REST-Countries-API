@@ -7,6 +7,7 @@ import {
   CardDescription,
   CardDetail,
 } from "./CountryCard.styled";
+import { Link } from "react-router-dom";
 
 interface Props {
   Name: string;
@@ -18,21 +19,23 @@ interface Props {
 
 const CountryCard = (props: Props) => {
   return (
-    <CardContainer>
-      <CardImage src={props.flag} alt={props.Name + " Flag"}></CardImage>
-      <CardDetails>
-        <CardName>{props.Name}</CardName>
-        <CardDescription>
-          <CardDetail>Region:</CardDetail> {props.Region}
-        </CardDescription>
-        <CardDescription>
-          <CardDetail>Population:</CardDetail> {props.Population}
-        </CardDescription>
-        <CardDescription>
-          <CardDetail>Capital:</CardDetail> {props.Capital}
-        </CardDescription>
-      </CardDetails>
-    </CardContainer>
+    <Link to={props.Name} style={{ textDecoration: "none", color: "inherit" }}>
+      <CardContainer>
+        <CardImage src={props.flag} alt={props.Name + " Flag"}></CardImage>
+        <CardDetails>
+          <CardName>{props.Name}</CardName>
+          <CardDescription>
+            <CardDetail>Region:</CardDetail> {props.Region}
+          </CardDescription>
+          <CardDescription>
+            <CardDetail>Population:</CardDetail> {props.Population}
+          </CardDescription>
+          <CardDescription>
+            <CardDetail>Capital:</CardDetail> {props.Capital}
+          </CardDescription>
+        </CardDetails>
+      </CardContainer>
+    </Link>
   );
 };
 

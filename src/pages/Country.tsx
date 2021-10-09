@@ -37,7 +37,7 @@ const Country = (props: Props) => {
       {!props.Loaded ? (
         <h1>Loading</h1>
       ) : currentCountry === null || currentCountry === undefined ? (
-        <h1>Error</h1>
+        <h1>No Country Found</h1>
       ) : (
         <CountryInfo Data={props.Data} CountryData={currentCountry} />
       )}

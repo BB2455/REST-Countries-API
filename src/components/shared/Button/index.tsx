@@ -1,7 +1,8 @@
 import { faLongArrowAltLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { Component } from "react";
-import { Button, A } from "./Button.styled";
+import { Button } from "./Button.styled";
+import { Link } from "react-router-dom";
 
 interface Props {
   href: string;
@@ -12,7 +13,7 @@ interface Props {
 
 const BackButton = (props: Props) => {
   return (
-    <A href={props.href}>
+    <Link to={props.href}>
       <Button margin={props.margin} padding={props.padding}>
         {props.href === "/" ? (
           <>
@@ -22,7 +23,7 @@ const BackButton = (props: Props) => {
           props.title
         )}
       </Button>
-    </A>
+    </Link>
   );
 };
 
