@@ -4,19 +4,13 @@ import Country from "./pages/Country";
 import GlobalStyles from "./global.styled";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./themes";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Header } from "./components";
 
 const App: React.FC = () => {
   const [theme, setTheme] = useState<string>("light");
   const [countryData, setCountryData]: any[] = useState<object>({});
   const [hasLoaded, setHasLoaded] = useState<boolean>(false);
-  // const [currentCountry, setCurrentCountry] = useState("")
 
   const fetchData = async (): Promise<void> => {
     try {

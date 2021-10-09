@@ -6,6 +6,8 @@ import {
   DataTitle,
   CountryTitle,
   BorderTitle,
+  CountryContainer,
+  BorderContainer,
 } from "./CountryInfo.styled";
 
 interface Props {
@@ -56,12 +58,12 @@ const CountryInfo = (props: Props) => {
   };
 
   return (
-    <Div display="flex" justifyContent="space-between" alignItems="center">
+    <CountryContainer>
       <FlagImage src={props.CountryData.flags[0]} />
       <Div>
         <CountryTitle>{props.CountryData.name.official}</CountryTitle>
-        <Div display="flex" justifyContent="space-between" width="600px">
-          <Div width="250px">
+        <Div display="flex" justifyContent="space-between" width="100%">
+          <Div width="50%">
             <DataItem>
               <DataTitle>Native Name: </DataTitle>
               {getNativeName()}
@@ -104,6 +106,7 @@ const CountryInfo = (props: Props) => {
           style={{ flexWrap: "wrap" }}
         >
           <BorderTitle>Border Countries: </BorderTitle>
+
           {props.CountryData.borders.map((borderCountry: any) => (
             <Button
               key={borderCountry}
@@ -114,7 +117,7 @@ const CountryInfo = (props: Props) => {
           ))}
         </Div>
       </Div>
-    </Div>
+    </CountryContainer>
   );
 };
 

@@ -1,9 +1,16 @@
 import styled from "styled-components";
 
+export const CountryContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
+`;
+
 export const FlagImage = styled.img`
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.5);
-  height: 100%;
-  width: 40%;
+  width: 100%;
 `;
 
 export const CountryTitle = styled.h1`
@@ -27,4 +34,9 @@ export const BorderTitle = styled.h4`
   font-weight: 800;
   font-size: 14px;
   margin-bottom: 1rem;
+`;
+
+export const BorderContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 `;

@@ -35,8 +35,10 @@ const Home = (props: Props) => {
       );
     }
     if (search !== "") {
-      toBeFilteredData = toBeFilteredData.filter((country) =>
-        country.name.official.toLowerCase().includes(search.toLowerCase())
+      toBeFilteredData = toBeFilteredData.filter(
+        (country) =>
+          country.name.official.toLowerCase().includes(search.toLowerCase()) ||
+          country.name.common.toLowerCase().includes(search.toLowerCase())
       );
     }
     setCurrentCountries(toBeFilteredData);
@@ -48,7 +50,7 @@ const Home = (props: Props) => {
         <title>Where In The World</title>
       </Helmet>
       <Div
-        padding="3rem 0"
+        padding="3rem 0 0 0"
         display="flex"
         justifyContent="space-between"
         alignItems="center"

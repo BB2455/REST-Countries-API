@@ -14,7 +14,7 @@ const CountryGrid = (props: Props) => {
         props.Data.map((country) => (
           <CountryCard
             key={country.name.common}
-            Name={country.name.official}
+            Name={country.name.common}
             Population={country.population}
             Region={country.region}
             Capital={country.capital[0]}
